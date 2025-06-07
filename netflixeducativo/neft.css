@@ -3,11 +3,15 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 header.logotipo {
-  background-color: black;
+  background-color: transparent;
   padding: 20px 0;
+  position: relative;
 }
 
 img {

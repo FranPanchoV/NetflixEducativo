@@ -1,21 +1,27 @@
-* {
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #333;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-body {
-  background: black;
-  font-family: "Bebas Neue", sans-serif;
+header.logotipo {
+  background-color: black;
+  padding: 20px 0;
 }
 
 img {
   filter: brightness(24%);
+  height: 100%;
 }
 
 .contenedor {
-  width: 90%;
-  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 header {

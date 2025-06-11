@@ -237,6 +237,10 @@ main .tendencias .title {
   padding: 2rem;
   transition: transform 0.3s ease;
   position: relative;
+  margin-bottom: 2rem;
+}
+.beneficios > div:last-child {
+  margin-bottom: 0;
 }
 .beneficios > div:hover {
   transform: scale(1.05);
@@ -261,15 +265,10 @@ main .tendencias .title {
      object-fit: contain;
   filter: brightness(0) invert(1);
 }
+
 @media (max-width: 600px) {
   .beneficios {
     grid-template-columns: 1fr;
     padding: 2rem;
   }
-  .beneficios > div {
-    margin-bottom: 2rem;
-  }
-  .beneficios > div:last-child {
-    margin-bottom: 0;
-  }
-}/*# sourceMappingURL=neft.css.map */
+}/*# sourceMappingURL=Neft.css.map */

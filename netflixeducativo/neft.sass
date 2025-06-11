@@ -248,23 +248,31 @@ $icon-size: 80px
   color: $text-color
   text-align: center
   padding: $spacing-unit * 2 $spacing-unit
-  overflow: hidden  // Para efectos hover
+  overflow: hidden
 
-  // Grid container
+  // Grid containern
   display: grid
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
   gap: $spacing-unit * 2
   max-width: 1200px
   margin: 0 auto
 
+  // Estilos para los divs hijos
   > div
     padding: $spacing-unit
     transition: transform 0.3s ease
     position: relative
 
+    // Separación entre divs
+    margin-bottom: $spacing-unit
+
+    // Eliminar margen en el último div
+    &:last-child
+      margin-bottom: 0
+
     &:hover
       transform: scale(1.05)
-      z-index: 1  // Evita superposición con otros elementos
+      z-index: 1 // Evita superposición con otros elementos
 
     h3
       font-size: 1.5rem
@@ -284,11 +292,8 @@ $icon-size: 80px
       object-fit: contain
       filter: brightness(0) invert(1)
 
-  // Responsive
-  @media (max-width: 600px)
+// Responsividad
+@media (max-width: 600px)
+  .beneficios
     grid-template-columns: 1fr
     padding: $spacing-unit
-    > div
-      margin-bottom: $spacing-unit
-      &:last-child
-        margin-bottom: 0

@@ -253,8 +253,6 @@ main .tendencias .title {
   margin-bottom: 1rem;
 }
 .beneficios > div img {
-  -o-object-fit: contain;
-     object-fit: contain;
   position: absolute;
   bottom: 1rem;
   right: 1rem;

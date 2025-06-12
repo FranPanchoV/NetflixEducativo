@@ -10,7 +10,7 @@ body {
   position: relative;
   padding: 2rem 4rem;
   overflow: hidden;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.445)), url(imagenes/background.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url("imagenes/background.jpg");
 }
 .header::before {
   content: "";
@@ -48,7 +48,7 @@ body {
   text-decoration: none;
   font-size: 0.9rem;
   box-sizing: border-box;
-  border: 1px solid #767676;
+  border: 2px solid #ccc;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,7 +96,8 @@ body {
   justify-content: center;
   gap: 0.5rem;
 }
-.container div .start-input {
+
+.inicia-in {
   width: 60%;
   min-width: 18rem;
   padding: 1rem;
@@ -105,7 +106,8 @@ body {
   border-radius: 4px;
   background: rgba(0, 0, 0, 0.7);
 }
-.container div .start-btn {
+
+.inicia-bt {
   background: #e50914;
   color: #fff;
   border: none;
@@ -116,14 +118,14 @@ body {
   padding: 1rem 1.5rem;
   font-size: 1.2rem;
 }
-.container div .start-btn:hover {
+.inicia-bt:hover {
   background: #b40710;
 }
 
 .curva {
   position: relative;
-  background-color: rgba(0, 0, 0, 0);
-  height: 10px;
+  background-color: transparent;
+  height: 3px;
   width: 100%;
 }
 .curva::after {
@@ -222,53 +224,174 @@ main .tendencias .title {
 }
 
 .beneficios {
-  background-color: #141414;
-  color: #f5f5f5;
-  text-align: center;
-  padding: 4rem 2rem;
-  overflow: hidden;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 4rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background: #000;
+  color: #fff;
 }
 .beneficios > div {
+  background: rgb(30, 19, 37);
+  border-radius: 10px;
   padding: 2rem;
-  transition: transform 0.3s ease;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
-  margin-bottom: 2rem;
-}
-.beneficios > div:last-child {
-  margin-bottom: 0;
-}
-.beneficios > div:hover {
-  transform: scale(1.05);
-  z-index: 1;
 }
 .beneficios > div h3 {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #ffffff;
+  margin-bottom: 0.5rem;
+  color: #fff;
   font-weight: 600;
 }
 .beneficios > div p {
   font-size: 1rem;
   line-height: 1.5;
   opacity: 0.9;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .beneficios > div img {
-  width: 80px;
-  height: 80px;
   -o-object-fit: contain;
      object-fit: contain;
-  filter: brightness(0) invert(1);
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .beneficios {
     grid-template-columns: 1fr;
-    padding: 2rem;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
   }
-}/*# sourceMappingURL=Neft.css.map */
+  .beneficios > div {
+    padding: 1.5rem;
+  }
+  .beneficios > div h3 {
+    font-size: 1.3rem;
+  }
+  .beneficios > div img {
+    width: 48px;
+    height: 48px;
+  }
+}
+.accordion {
+  margin: 20px 0;
+  width: 100%;
+}
+.accordion li {
+  list-style: none;
+  width: 100%;
+  padding: 5px;
+}
+.accordion li label {
+  display: flex;
+  padding: 20px;
+  height: 30px;
+  font-size: 22px;
+  font-weight: 500;
+  background-color: #303030;
+  margin-bottom: 2px;
+  cursor: pointer;
+  position: relative;
+}
+.accordion li label::after {
+  content: "+";
+  font-size: 34px;
+  position: absolute;
+  right: 20px;
+  transition: transform 0.5s;
+}
+.accordion input[type=checkbox] {
+  display: none;
+}
+.accordion input[type=checkbox]:checked + label + .content {
+  max-height: 600px;
+  padding: 30px 20px;
+}
+.accordion input[type=checkbox]:checked + label::after {
+  transform: rotate(135deg);
+}
+.accordion .content {
+  background: #303030;
+  text-align: left;
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  font-size: 20px;
+  transition: max-height 0.3s, padding 0.3s;
+}
+
+.start-now-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.inicia-in {
+  width: 40%;
+  min-width: 18rem;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  text-align: start;
+}
+
+.inicia-bt {
+  background: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+}
+.inicia-bt:hover {
+  background: #b40710;
+}
+
+footer p {
+  color: #999;
+  font-size: 14px;
+}
+footer .enlaces {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0;
+}
+footer .enlaces a {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  text-decoration: underline;
+  color: #999;
+}
+footer .traductor {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 15px;
+  background-color: #000;
+  border: 1px solid #666;
+  height: 1rem;
+  padding: 15px;
+  font-size: 14px;
+}
+footer .traductor .arrow {
+  height: 1rem;
+  width: 1px;
+}
+footer p {
+  margin: 50px 0;
+}/*# sourceMappingURL=neft.css.map */

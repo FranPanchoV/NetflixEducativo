@@ -4,6 +4,8 @@ $white: #fff
 $black: #000
 $gray-dark: rgba(0, 0, 0, 0.7)
 $font-main: 'Helvetica Neue', Arial, sans-serif
+$bg-image: url('imagenes/background.jpg')
+$spacing-unit: 1rem
 
 // Mixins
 =flex-center
@@ -30,65 +32,51 @@ body
   margin: 0
   padding: 0
 
-// Variables (agregamos una variable para la imagen de fondo)
-$bg-image: url(imagenes/background.jpg)  // Reemplaza con tu ruta
-
 // Header con imagen de fondo extendida
 .header
   position: relative
   padding: 2rem 4rem
-  overflow: hidden  // Oculta el exceso del pseudo-elemento
-  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.445)), url(imagenes/background.jpg)
-
-  // Pseudo-elemento para el fondo
+  overflow: hidden
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.400)), $bg-image
   &::before
     content: ''
     position: absolute
     top: 0
     left: 0
     width: 100%
-    height: 100vh  // Altura hasta antes de tendencias
-    z-index: -1  // Detrás del contenido
-
-  // Asegura que el contenido se vea encima
+    height: 100vh
+    z-index: -1
   nav, .container
     position: relative
     z-index: 2
-
   nav
     display: flex
     justify-content: space-between
     align-items: center
-
     .logotipo
       width: 100px
       top: 25px
       left: 20px
       position: relative
-
     div
       +flex-center
       gap: 1.5rem
-
       a
         display: inline-flex
         color: $white
-        text-decoration: none 
+        text-decoration: none
         font-size: 0.9rem
         box-sizing: border-box
-        border:  1px solid #767676
+        border: 2px solid #ccc
         +flex-center
         gap: 0.5rem
-
         .language-img
-          height: 1rem  // Ajusta el tamaño de la bandera
+          height: 1rem
           width: auto
-          border: none // Asegura que la imagen no tenga borde propio
-
+          border: none
         .arrow
-          height: 0.6rem  // Tamaño de la flecha
+          height: 0.6rem
           width: auto
-
         &:last-child
           background: $netflix-red
           padding: 0.5rem 1rem
@@ -100,47 +88,44 @@ $bg-image: url(imagenes/background.jpg)  // Reemplaza con tu ruta
   margin: 5rem auto
   padding: 0 2rem
   text-align: center
-
   h1
     font-size: 3.5rem
     font-weight: 700
     line-height: 1.2
     margin-bottom: 1.5rem
-
   h3
     font-size: 1.5rem
     font-weight: 400
     margin-bottom: 1.5rem
-
   p
     font-size: 1.2rem
     margin-bottom: 1.5rem
-
   div
     +flex-center
     gap: 0.5rem
 
-    .start-input
-      width: 60%
-      min-width: 18rem
-      padding: 1rem
-      font-size: 1rem
-      border: 1px solid #ccc
-      border-radius: 4px
-      background: rgba(0, 0, 0, 0.7)
+// Estilos para el input y botón de inicio
+.inicia-in
+  width: 60%
+  min-width: 18rem
+  padding: 1rem
+  font-size: 1rem
+  border: 1px solid #ccc
+  border-radius: 4px
+  background: rgba(0, 0, 0, 0.7)
 
-    .start-btn
-      +button-style
-      padding: 1rem 1.5rem
-      font-size: 1.2rem
+.inicia-bt
+  +button-style
+  padding: 1rem 1.5rem
+  font-size: 1.2rem
 
-.curva 
+// Estilos para la curva
+.curva
   position: relative
-  background-color: #00000000 // color de fondo
-  height: 10px // altura del elemento
-  width: 100% // ancho completo
-
-  &::after 
+  background-color: transparent
+  height: 3px
+  width: 100%
+  &::after
     content: ''
     position: absolute
     top: 0
@@ -148,34 +133,29 @@ $bg-image: url(imagenes/background.jpg)  // Reemplaza con tu ruta
     bottom: 0
     left: 0
     z-index: -1
-    margin-top: -.25rem
+    margin-top: -0.25rem
     border-radius: inherit
     background: linear-gradient(to right, rgba(33, 13, 22, 1) 16%, rgba(184, 40, 105, 1), rgba(229, 9, 20, 1), rgba(184, 40, 105, 1), rgba(33, 13, 22, 1) 84%)
-    
+
 // Sección de tendencias
 main
   padding: 3rem 4rem
   margin-top: 2rem
-
   .tendencias
     margin-bottom: 2rem
-
     .title
       font-size: 1.5rem
       font-weight: 600
 
 // Estilos del carrusel (Swiper)
-
 .swiper
   position: relative
   overflow: hidden
   padding: 0 3rem
-
   &-vamos
     display: flex
     transition: transform 0.3s ease
     padding: 1rem 0
-
   &-slide
     flex: 0 0 auto
     width: 12.5rem
@@ -183,16 +163,13 @@ main
     transition: transform 0.3s
     border-radius: 4px
     overflow: hidden
-
     img
       width: 180px
       height: auto
       display: block
       transition: transform 0.3s
-
     &:hover img
       transform: scale(1.05)
-
   &-button
     &-prev,
     &-next
@@ -209,7 +186,6 @@ main
       z-index: 10
       opacity: 0
       transition: opacity 0.3s
-
       &::after
         content: ''
         width: 1rem
@@ -217,83 +193,161 @@ main
         border: solid $white
         border-width: 0 2px 2px 0
         display: inline-block
-
     &-prev
       left: 0
       &::after
         transform: rotate(135deg)
         margin-right: -0.2rem
-
     &-next
       right: 0
       &::after
         transform: rotate(-45deg)
         margin-left: -0.2rem
-
   &:hover &-button-prev,
   &:hover &-button-next
     opacity: 1
 
 // Sección de Beneficios
-
-// Variables
-$title-color: #ffffff
-$text-color: #f5f5f5
-$bg-color: #141414
-$spacing-unit: 2rem
-$icon-size: 80px
-
 .beneficios
-  background-color: $bg-color
-  color: $text-color
-  text-align: center
-  padding: $spacing-unit * 2 $spacing-unit
-  overflow: hidden
-
-  // Grid containern
   display: grid
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
-  gap: $spacing-unit * 2
-  max-width: 1200px
-  margin: 0 auto
-
-  // Estilos para los divs hijos
+  gap: 2rem
+  padding: 4rem 2rem
+  background: $black
+  color: $white
   > div
-    padding: $spacing-unit
-    transition: transform 0.3s ease
+    background: rgb(30, 19, 37)
+    border-radius: 10px
+    padding: 2rem
+    text-align: center
+    transition: transform 0.3s ease, box-shadow 0.3s ease
+    border: 1px solid rgba(255, 255, 255, 0.1)
     position: relative
-
-    // Separación entre divs
-    margin-bottom: $spacing-unit
-
-    // Eliminar margen en el último div
-    &:last-child
-      margin-bottom: 0
-
-    &:hover
-      transform: scale(1.05)
-      z-index: 1 // Evita superposición con otros elementos
-
     h3
       font-size: 1.5rem
       margin-bottom: $spacing-unit * 0.5
-      color: $title-color
+      color: $white
       font-weight: 600
-
     p
       font-size: 1rem
       line-height: 1.5
       opacity: 0.9
       margin-bottom: $spacing-unit
-
     img
-      width: $icon-size
-      height: $icon-size
       object-fit: contain
-      filter: brightness(0) invert(1)
+      position: absolute
+      bottom: $spacing-unit
+      right: $spacing-unit
+      width: 40px
+      height: 40px
 
-// Responsividad
-@media (max-width: 600px)
+// Responsive para móviles
+@media (max-width: 768px)
   .beneficios
     grid-template-columns: 1fr
-    padding: $spacing-unit
+    padding: 2rem 1rem
+    gap: 1.5rem
+    > div
+      padding: 1.5rem
+      h3
+        font-size: 1.3rem
+      img
+        width: 48px
+        height: 48px
+
+// Acordeón
+.accordion
+  margin: 20px 0
+  width: 100%
+  li
+    list-style: none
+    width: 100%
+    padding: 5px
+    label
+      display: flex
+      padding: 20px
+      height: 30px
+      font-size: 22px
+      font-weight: 500
+      background-color: #303030
+      margin-bottom: 2px
+      cursor: pointer
+      position: relative
+      &::after
+        content: '+'
+        font-size: 34px
+        position: absolute
+        right: 20px
+        transition: transform 0.5s
+  input[type='checkbox']
+    display: none
+    &:checked + label + .content
+      max-height: 600px
+      padding: 30px 20px
+    &:checked + label::after
+      transform: rotate(135deg)
+  .content
+    background: #303030
+    text-align: left
+    padding: 0 20px
+    max-height: 0
+    overflow: hidden
+    font-size: 20px
+    transition: max-height 0.3s, padding 0.3s
+
+// Estilos para el contenedor de los elementos de inicio
+.start-now-container
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  gap: 1rem
+  margin: 2rem auto
+  max-width: 800px
+
+// Estilos para el input de inicio
+.inicia-in
+  width: 40%
+  min-width: 18rem
+  padding: 1rem
+  font-size: 1rem
+  border: 1px solid #ccc
+  border-radius: 10px
+  background: rgba(0, 0, 0, 0.7)
+  text-align: start
+
+// Estilos para el botón de inicio
+.inicia-bt
+  +button-style
+  padding: 1rem 1.5rem
+  font-size: 1.2rem
+
+// Estilos para el footer
+footer
+  p
+    color: #999
+    font-size: 14px
+  .enlaces
+    display: flex
+    justify-content: space-between
+    margin: 30px 0
+    a
+      display: block
+      margin-top: 10px
+      font-size: 14px
+      text-decoration: underline
+      color: #999
+  .traductor
+    display: inline-flex
+    align-items: center
+    margin-right: 15px
+    background-color: #000
+    border: 1px solid #666
+    height: 1rem
+    padding: 15px
+    font-size: 14px
+    .arrow
+      height: 1rem
+      width: 1px
+  p
+    margin: 50px 0
